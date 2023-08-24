@@ -8,7 +8,7 @@ class Program
     static async Task Main(string[] args)
     {
         using var httpClient = new HttpClient();
-        var baseUrl = "https://localhost:7235/Breakfasts";
+        var baseUrl = "https://localhost:7235/Breakfasts";  // this is hardcoded as of now in actual implementation we could store the base URL of the API in a configuration file
         Console.WriteLine("Enter the Breakfast Id"); 
         string code = Console.ReadLine();
 
@@ -20,7 +20,7 @@ class Program
 
             // Read and save response body to a JSON file
             var getResponseBody = await getResponse.Content.ReadAsStringAsync();
-            File.WriteAllText(@"C:\\Users\\lette\\source\\repos\\ConsumeApi\ConsumeApiresponse.json", getResponseBody);
+            File.WriteAllText("ConsumeApiresponse.json", getResponseBody);
 
             Console.WriteLine("Response saved to response.json");
         }
